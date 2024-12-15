@@ -10,12 +10,12 @@ function App() {
     <div className="body">
       <div className="header">
         <div>
-          <h1>Home Spotify Libraries</h1>
+          <h1>Home Retrofy Favorites</h1>
         </div>
       </div>
       <div className="main">
         <Songs search={search} />
-        <Walkman />
+        
       </div>
       <div className="footer">
         <div className="search">
@@ -35,13 +35,13 @@ function App() {
           </div>
         </div>
         <div className="smedia">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/andres_14agst/" target="_blank" rel="noopener noreferrer">
             <img src={IconInstagram} alt="Instagram" className="social-icon" />
           </a>
           <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
             <img src={IconDiscord} alt="Discord" className="social-icon" />
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/AnvidMora1408" target="_blank" rel="noopener noreferrer">
             <img src={IconGitHub} alt="GitHub" className="social-icon" />
           </a>
         </div>

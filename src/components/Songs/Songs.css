@@ -25,12 +25,15 @@
   
   /* Song image */
   .song-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 8px;
     object-fit: cover;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
+    margin-left: 30px;
+    image-rendering: pixelated !important;
   }
+  
   
   /* Song details */
   .song-details {
@@ -41,13 +44,13 @@
   }
   
   .song-title {
-    font-size: 14px;
+    font-size: 42px;
     margin: 0;
     font-weight: bold;
   }
   
   .song-artist {
-    font-size: 12px;
+    font-size: 32px;
     margin: 0;
     color: #b3b3b3;
   }
@@ -57,8 +60,8 @@
     border: none;
     color: white;
     font-size: 16px;
-    width: 60px;
-    height: 60px;
+    width: 240;
+    height: 240px;
     cursor: grab;
     transition: transform 0.2s ease-in-out;
   }
@@ -87,3 +90,24 @@
     background-color: #1ed760; 
   }
   
+  /* Estilo cuando se arrastra un elemento */
+.song-item:active {
+  cursor: grabbing; /* Cambia el cursor al iniciar el arrastre */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  background-color: #444; /* Cambia el color de fondo */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5); /* Añade un efecto de sombra */
+}
+
+/* Estilo adicional para los elementos en movimiento */
+.song-item.dragging {
+  opacity: 0.5;
+  background-color: #1db954; /* Indica visualmente que está siendo arrastrado */
+  border: 2px dashed #fff; /* Un borde diferente para elementos en movimiento */
+  cursor: grabbing;
+}
+
+/* Estilo cuando el contenedor acepta un elemento */
+.songs-container.drag-over {
+  background-color: #222; /* Cambia el color del contenedor al arrastrar sobre él */
+  border: 2px dashed #1db954; /* Borde visible indicando el drop area */
+}

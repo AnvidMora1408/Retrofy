@@ -8,5 +8,12 @@ import play from "./punta-de-flecha-del-boton-de-reproduccion.png"
 import pause from "./parada.png"
 import next from "./proximo.png"
 import prev from "./anterior.png"
+import emptyWalkman from "./emptyWalkman.png"
+import BillieJean from "./Billie Jean.png"
+import DancingQueen from "./Dancing Queen.png"
+import IWantYouBack from "./I Want you back.png"
+import StayinAlive from "./Stayin Alive.png"
+import Superstition from "./Superstition.png"
+import TakeOnMe from "./Take on me.png"
 
-export { IconSearc, IconInstagram, IconDiscord, IconGitHub, Casseette,WalkmanImage, play, pause, next, prev }
+export { IconSearc, IconInstagram, IconDiscord, IconGitHub, Casseette, WalkmanImage, play, pause, next, prev, emptyWalkman, BillieJean, DancingQueen, IWantYouBack, StayinAlive, Superstition, TakeOnMe }

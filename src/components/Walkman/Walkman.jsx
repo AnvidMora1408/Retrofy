@@ -1,12 +1,31 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Walkman.css';
-import { WalkmanImage, play, pause, next, prev } from '../../img';
-import retroSongs from '../../assets/data.js';  // Asegúrate de que este archivo contenga las canciones con su propiedad audioSrc
+import { WalkmanImage, play, pause, next, prev, emptyWalkman } from '../../img';
+import retroSongs from '../../assets/data.js'; // Ensure this contains the songs with their audio
 
-const Walkman = () => {
-  const [playing, setPlaying] = useState(false);
+const Walkman = ({ currentSongId }) => {
   const [currentSong, setCurrentSong] = useState(null);
-  const audioRef = useRef(null); // Referencia al elemento <audio>
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef(null); 
+
+  useEffect(() => {
+    if (currentSongId) {
+      const song = retroSongs.find((s) => s.id === currentSongId);
+      setCurrentSong(song);
+    }
+  }, [currentSongId]);
+
+  const onDrop = (e) => {
+    e.preventDefault();
+    const songId = e.dataTransfer.getData('songId'); 
+    const song = retroSongs.find((s) => s.id === parseInt(songId)); 
+    setCurrentSong(song); 
+    setPlaying(true); 
+  };
+
+  const onDragOver = (e) => {
+    e.preventDefault();
+  };
 
   const togglePlay = () => {
     if (playing) {
@@ -18,42 +37,45 @@ const Walkman = () => {
   };
 
   const nextTrack = () => {
-    const currentIndex = retroSongs.findIndex(song => song.id === currentSong.id);
+    const currentIndex = retroSongs.findIndex((song) => song.id === currentSong.id);
     const nextSong = retroSongs[(currentIndex + 1) % retroSongs.length];
     setCurrentSong(nextSong);
   };
 
   const prevTrack = () => {
-    const currentIndex = retroSongs.findIndex(song => song.id === currentSong.id);
+    const currentIndex = retroSongs.findIndex((song) => song.id === currentSong.id);
     const prevSong = retroSongs[(currentIndex - 1 + retroSongs.length) % retroSongs.length];
     setCurrentSong(prevSong);
   };
 
-  const onDrop = (e) => {
-    e.preventDefault();
-    const song = JSON.parse(e.dataTransfer.getData('song'));
-    setCurrentSong(song);
-    setPlaying(true);  // Reproducir la canción automáticamente
-  };
-
-  const onDragOver = (e) => {
-    e.preventDefault();
-  };
+  const extractCassette = () => {
+    setCurrentSong(null)
+  }
 
   return (
-    <div className="walkman" onDrop={onDrop} onDragOver={onDragOver}>
-      <img src={WalkmanImage} alt="Walkman" className="walkman-image" />
+    <div
+      className="walkman"
+      onDrop={onDrop} 
+      onDragOver={onDragOver} 
+    >
+      <img src={currentSong ? WalkmanImage : emptyWalkman} alt="Walkman" className="walkman-image" />
       <div className="MusicName">
         <h1>{currentSong ? currentSong.title : 'Select a Song'}</h1>
-        <p>{currentSong ? currentSong.artist : ''}</p>
       </div>
 
-      {/* Reproductor de audio */}
       {currentSong && (
-        <audio ref={audioRef} src={currentSong.audioSrc} onEnded={() => setPlaying(false)} />
+        <audio
+          ref={audioRef}
+          src={currentSong.audio}  
+          autoPlay  
+          onEnded={() => setPlaying(false)}  
+        />
       )}
 
       <div className="controls">
+        <button className="control-btn" onClick={extractCassette}>
+          🟥
+        </button>
         <button className="control-btn" onClick={prevTrack}>
           <img src={prev} alt="Previous" />
         </button>
