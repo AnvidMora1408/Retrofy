@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Pixelify+Sans:wght@400..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pixelify Sans", sans-serif;
+  height: 15vh;
+  background-color: #0fa142;
+  font-size: 20px;
+  color: white;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-family: "Lilita One", sans-serif;
+  background-color: #535353; 
+  height: 70vh;
+}
+
+.main div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  background-color: #282828;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-family: "Pixelify Sans", sans-serif;
+  height: 15vh;
+}
+
+.footer div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* search */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border: 2px solid #0fa142;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 10px #0fa142;
+  width: 80% !important;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.search-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0fa142;
+}
+
+.search-icon {
+  width: 24px; 
+  height: 24px;
+  margin-right: 5px;
+  image-rendering: pixelated;
+}
+
+.search-input {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 14px; 
+  padding: 5px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  outline: none;
+  flex: 1;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+/* Social media icons */
+.smedia {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #0fa142; /* Color inicial del ícono */
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  border-radius: 50%; /* Bordes redondeados */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  border: 2px solid #0fa142; 
+  border-radius: 50%; 
+  box-shadow: 0 0 10px rgba(15, 161, 66, 0.8);
+  padding: 2px;
+  image-rendering: pixelated;
+}
+
+.social-icon:hover {
+  background-color: #15ff00; /* Cambia el color al hover */
+  transform: scale(1.2); /* Efecto de agrandamiento */
+}

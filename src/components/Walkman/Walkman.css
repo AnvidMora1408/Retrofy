@@ -1,0 +1,44 @@
+.walkman {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1db954;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin-left: 14px;
+}
+  
+.walkman-image {
+    width: 50%;
+    height: 50%;
+    object-fit: cover; 
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.control-btn {
+    background-color: #282828;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.control-btn:hover {
+    transform: scale(1.2); 
+    background-color: #1db954;
+    color: black;
+}
+
+
+  
